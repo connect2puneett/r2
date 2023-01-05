@@ -35,17 +35,17 @@ print(f"input spec (in this case, just an S3 path): {inputs}")
 
 
 estimator = PyTorch(
-    entry_point="code/mnist.py",
-    # source_dir="code",
+    entry_point="mnist.py",
+    source_dir="code",
     role=role,
     framework_version="1.4.0",
     instance_count=2,
-    #instance_type="ml.p3.2xlarge",
-    instance_type="ml.m4.xlarge",
+    instance_type="ml.p3.2xlarge",
+    #instance_type="ml.m4.xlarge",
     py_version="py3",
-    # use_spot_instances=True,  # Use a spot instance
-    # max_run=300,  # Max training time
-    # max_wait=600,  # Max training time + spot waiting time
+    use_spot_instances=True,  # Use a spot instance
+    max_run=300,  # Max training time
+    max_wait=600,  # Max training time + spot waiting time
     hyperparameters={"epochs": 20, "backend": "gloo"},
 )
 
