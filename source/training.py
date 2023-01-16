@@ -44,9 +44,9 @@ estimator = PyTorch(
     instance_type="ml.m4.xlarge",
     py_version="py3",
     use_spot_instances=True,  # Use a spot instance
-    max_run=300,  # Max training time
-    max_wait=6000,  # Max training time + spot waiting time
-    hyperparameters={"epochs": 20, "backend": "gloo"},
+    #max_run=300,  # Max training time
+    #max_wait=6000,  # Max training time + spot waiting time
+    hyperparameteurs={"epochs": 20, "backend": "gloo"},
 )
 
 print(f"Training job name: {job_name}")
