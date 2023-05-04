@@ -7,7 +7,7 @@ curl -o $IMG https://blog.otoro.net/assets/20160401/png/mnist_output_10.png
 
 echo -e "\n********************** POST request to Lambda **********************\n"
 (echo -n '{"data": "'; base64 $IMG; echo '"}') |
-curl -H "Content-Type: application/json" -d @- $URL | json_pp
+curl -H "Content-Type: application/json" -d @- $URL
 
 # Remove test image
 [ -e $IMG ] && rm $IMG
