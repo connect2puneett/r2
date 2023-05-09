@@ -56,5 +56,5 @@ estimator.fit({"training": "s3://" + bucket + "/" + prefix}, job_name=job_name)
 # Deploy the model
 endpoint_name = f"{stack_name}-{commit_id[:7]}"
 predictor = estimator.deploy(
-    initial_instance_count=1, instance_type="ml.m4.xlarge", endpoint_name=endpoint_name
+    initial_instance_count=1, instance_type="ml.m5.xlarge", endpoint_name=endpoint_name
 )
