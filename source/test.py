@@ -13,7 +13,7 @@ endpoint_name = f"{stack_name}-{commit_id[:7]}"
 
 runtime = boto3.client("runtime.sagemaker")
 
-IMAGE_URL = "https://mlpipeline-pipeline-data-488176068240.s3.eu-west-1.amazonaws.com/MNIST_6_0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXDKMPU2ILC7YWXNN%2F20230504%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230504T063948Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c473ed63f78419acf1921500e6e3635397cd9affdf3134210ed034ba28354498"
+IMAGE_URL = "https://first-mlops-pipeline-data-488176068240.s3.eu-west-1.amazonaws.com/MNIST_6_0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXDKMPU2ILC7YWXNN%2F20230611%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230611T122536Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=91867eed4261f98a525dfd688dc2e52a5bc001dec45fd223827414c8c1735765"
 test_file = "test.jpg"
 wget.download(
     IMAGE_URL,
