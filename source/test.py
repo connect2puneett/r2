@@ -13,14 +13,14 @@ endpoint_name = f"{stack_name}-{commit_id[:7]}"
 
 runtime = boto3.client("runtime.sagemaker")
 
-IMAGE_URL = "https://first-mlops-pipeline-data-488176068240.s3.eu-west-1.amazonaws.com/MNIST_6_0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXDKMPU2ILC7YWXNN%2F20230611%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230611T122536Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=91867eed4261f98a525dfd688dc2e52a5bc001dec45fd223827414c8c1735765"
-test_file = "test.jpg"
+IMAGE_URL = "https://sagemaker-eu-west-1-488176068240.s3.eu-west-1.amazonaws.com/MNIST_6_0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXDKMPU2ILC7YWXNN%2F20230913%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230913T195532Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=5556a0794964166dbd641bc7a8f8b26a48fd9d420f83cbe9f253564987ddebae"
+#test_file = "test.jpg"
 wget.download(
     IMAGE_URL,
-    test_file,
+    #test_file,
 )
 
-image = imread(test_file, IMREAD_GRAYSCALE)
+image = imread(IMAGE_URL, IMREAD_GRAYSCALE)
 image = resize(image, (28, 28))
 image = image.astype("float32")
 image = image.reshape(1, 1, 28, 28)
@@ -42,7 +42,7 @@ if prediction != 5:
     print("Model prediction failed.")
     sys.exit(1)
 
-if os.path.exists(test_file):
-    os.remove(test_file)
+if os.path.exists(IMAGE_URL):
+    os.remove(IMAGE_URL)
 else:
     print("The file does not exist")

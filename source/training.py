@@ -53,6 +53,7 @@ print(f"Training job name: {job_name}")
 
 estimator.fit({"training": "s3://" + bucket + "/" + prefix}, job_name=job_name)
 
+
 # Deploy the model
 endpoint_name = f"{stack_name}-{commit_id[:7]}"
 predictor = estimator.deploy(
